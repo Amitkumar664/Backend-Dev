@@ -14,6 +14,14 @@ console.log("FIRST");
 //     console.log(data);
 // });
 
-const data=fs.readFileSync('./log.txt', 'utf-8');
-console.log(data);
+// const data=fs.readFileSync('./log.txt', 'utf-8');
+// console.log(data);
+// console.log("end of file");
+
+const data="this is log file";
+fs.writeFile('./output.txt', data, (err) => {
+    if (err) throw err;
+    console.log('File has been saved!');
+}); 
+
 console.log("end of file");
