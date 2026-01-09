@@ -33,3 +33,16 @@ fs.unlinkSync('./output.txt') //output.txt remove
 
 
 console.log("end of file");
+
+
+//async
+//readfile
+//writefile
+//appendfile
+//unlink(delete)
+
+//sync
+//readfilesync
+//writefilesync
+//appendfilesync
+//unlinksync(deleteSync)
