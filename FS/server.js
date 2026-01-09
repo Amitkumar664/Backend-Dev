@@ -49,7 +49,7 @@
 
 
 //Path module
-const path = require('path');
+// const path = require('path');
 
 //absolute path
 // const absolutePath = path.resolve("./log.txt");
@@ -74,9 +74,21 @@ const path = require('path');
 
 
 //http method
-//get
-//post
-//put
-//delete    
-//patch
+//get-read
+//post-create
+//put-update
+//delete    -delete
+//patch-partial updatte
+//api
+
+const http=require('http');
+
+const server=http.createServer((req,res)=>{
+    console.log(req);
+    // console.log(req.method); 
+    res.end('Hello from the server');
+});
+server.listen(3000,()=>{
+    console.log('server is listening on port 3000',3000);
+});
 
