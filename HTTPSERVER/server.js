@@ -81,40 +81,51 @@
 // });       
 
 //serving html file using http module
-const http=require('http');
-const fs=require('fs');
-const server=http.createServer((req,res)=>{
+// const http=require('http');
+// const fs=require('fs');
+// const server=http.createServer((req,res)=>{
 
-    if(req.url==="/"){
-        fs.readFile("./public/index.html",'utf-8',(err,data)=>{
-        if(err){
-            res.end("server error");
-        }
-        res.writeHead(200,{'Content-Type':'text/html'});
-        res.end(data);
-    });
-    }else if(req.url==="/about"){
-         fs.readFile("./public/about.html",'utf-8',(err,data)=>{
-        if(err){
-            res.end("server error");
-        }
-        res.writeHead(200,{'Content-Type':'text/html'});
-        res.end(data);
-    });}else if(req.url==="/task"){
-          fs.readFile("./public/task.html",'utf-8',(err,data)=>{
-        if(err){
-            res.end("server error");
-        }
-        res.writeHead(200,{'Content-Type':'text/html'});
-        res.end(data);
-    });
-    }else{
-        res.end("<h1>Page not found</h1>");
-    }
+//     if(req.url==="/"){
+//         fs.readFile("./public/index.html",'utf-8',(err,data)=>{
+//         if(err){
+//             res.end("server error");
+//         }
+//         res.writeHead(200,{'Content-Type':'text/html'});
+//         res.end(data);
+//     });
+//     }else if(req.url==="/about"){
+//          fs.readFile("./public/about.html",'utf-8',(err,data)=>{
+//         if(err){
+//             res.end("server error");
+//         }
+//         res.writeHead(200,{'Content-Type':'text/html'});
+//         res.end(data);
+//     });}else if(req.url==="/task"){
+//           fs.readFile("./public/task.html",'utf-8',(err,data)=>{
+//         if(err){
+//             res.end("server error");
+//         }
+//         res.writeHead(200,{'Content-Type':'text/html'});
+//         res.end(data);
+//     });
+//     }else{
+//         res.end("<h1>Page not found</h1>");
+//     }
 
 
     
+// });
+// server.listen(3000, () => {
+//     console.log("server is listening on port 3000");
+// });
+const http=require('http');
+const server=http.createServer((req,res)=>{
+    const baseUrl="http://localhost:3000";
+    const parsedUrl=new URL(req.url,baseUrl);
+    console.log(parsedUrl);
+    res.end("server response");
 });
 server.listen(3000, () => {
+   
     console.log("server is listening on port 3000");
 });
