@@ -122,6 +122,7 @@ const http=require('http');
 const server=http.createServer((req,res)=>{
     const baseUrl="http://localhost:3000";
     const parsedUrl=new URL(req.url,baseUrl);
+    console.log(parsedUrl.pathname);
     console.log(parsedUrl);
     res.end("server response");
 });
