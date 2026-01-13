@@ -130,3 +130,10 @@ server.listen(3000, () => {
    
     console.log("server is listening on port 3000");
 });
+//destructuring
+let arr=["apple","banana","mango"];
+//const fruit1=arr[0];
+//const fruit2=arr[1];
+//const name=arr[2];
+//destructuring
+const [fruit1,fruit2,fruit3]=arr;
