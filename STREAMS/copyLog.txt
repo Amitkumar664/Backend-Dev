@@ -1,2 +1,2 @@
-this is log file
-heello me
+THIS IS LOG FILE
+HEELLO ME
