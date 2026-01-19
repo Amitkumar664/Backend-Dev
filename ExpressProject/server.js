@@ -33,48 +33,6 @@ app.get('/aboutdetail',(req,res)=>{
         email:" amitkumar4102004b@gmail.com"}
      res.status(200).json(user);
 })
-app.get('/persondetail',(req,res)=>{
-    let user={
-        name:"amit",
-        age:20,
-        email:" amitkumar4102004b@gmail.com"}
-     res.status(200).json(user);
-})
-app.get('/studentdetail',(req,res)=>{
-    let user={
-        name:"amit",
-        age:20,
-        email:" amitkumar4102004b@gmail.com"}
-     res.status(200).json(user);
-})
-app.get('/teacherdetail',(req,res)=>{
-    let user={
-        name:"amit",
-        age:20,
-        email:" amitkumar4102004b@gmail.com"}
-     res.status(200).json(user);
-})
-app.get('/docdetail',(req,res)=>{
-    let user={
-        name:"amit",
-        age:20,
-        email:" amitkumar4102004b@gmail.com"}
-     res.status(200).json(user);
-})
-app.get('/mydetail',(req,res)=>{
-    let user={
-        name:"amit",
-        age:20,
-        email:" amitkumar4102004b@gmail.com"}
-     res.status(200).json(user);
-})
-app.get('/brotherdetail',(req,res)=>{
-    let user={
-        name:"amit",
-        age:20,
-        email:" amitkumar4102004b@gmail.com"}
-     res.status(200).json(user);
-})
 
 
 
