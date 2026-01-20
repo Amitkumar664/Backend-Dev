@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-// ✅ IMPORT CORRECTLY
 const { userData } = require('./data');
 
 app.get('/', (req, res) => {
@@ -30,8 +29,10 @@ app.get('/userdetail', (req, res) => {
 });
 
 
+
 app.get('/userData', (req, res) => {
   res.status(200).json(userData);
+  
 });
 
 
@@ -42,7 +43,43 @@ app.get("/userAge",(req,res)=>{
     res.status(200).json(userGreaterThan25);
     console.log(userGreaterThan25);
 })
+app.get('/username',(req,res)=>{
+  let modifiedName=userData.map((ele)=>{
+    if(ele.gender==="Male"){
+      return "Mr"+ele.name
+    }else{
+      return "Mrs"+ele.name
+    }
+  }) 
+  console.log(modifiedName);
+  res.status(200).json(modifiedName);
 
+
+});
+app.get("/user/:id",(req,res)=>{
+  const id=parseInt(req.params.id);
+  let user=userData.find((ele)=>ele.id===id)
+  res.json(user);
+});  
+
+let userInfo={
+  username:"Query",
+  password:"pass123"
+
+}
+// let name=userInfo.username;
+// let pass=userInfo.password;
+//destructuring
+const{name,pass}=userInfo;   //object destructuring
+
+let arr=[1,2,3];
+const [a,b,c]=arr;   //array destructuring
+
+
+//async programming
+//eventLoop
+//streams
+//server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

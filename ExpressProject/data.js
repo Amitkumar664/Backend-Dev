@@ -3,25 +3,29 @@ const userData = [
     id: 1,
     name: "Amit Kumar",
     age: 30,
-    email: "sdjbgjksg@sddgfnfk"
+    email: "sdjbgjksg@sddgfnfk",
+    gender: "Male"
   },
   {
     id: 2,
     name: "Amit",
     age: 25,
-    email: "amitkumar@kfj"
+    email: "amitkumar@kfj",
+    gender: "Male"
   },
   {
     id: 3,
     name: "sk",
     age: 28,
-    email: "skdjgk@fhdg"
+    email: "skdjgk@fhdg",
+    gender: "Male"
   },
   {
     id: 4,
     name: "vasudhaera",
     age: 22,
-    email: "vasudhaera@dhgf"
+    email: "vasudhaera@dhgf",
+    gender: "Female"
   }
 ];
 
