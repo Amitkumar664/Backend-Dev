@@ -1,6 +1,7 @@
 import express from 'express';
 import userRoute from "./router/userRoute.js"
 import registrationRoute from "./router/registrationRoute.js"
+import dashboardRoute from "./router/dashboardRoute.js"
 const port=3000;
 const app=express();
 
@@ -14,7 +15,8 @@ const app=express();
 
 //middleware
 app.use("/api",userRoute)
-app.use("/api",registrationRoute)
+app.use("/reg",registrationRoute)
+app.use("/dh",dashboardRoute)
 app.listen(port,()=>{
     console.log("server is running");
 })
