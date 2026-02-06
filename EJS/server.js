@@ -1,66 +1,112 @@
-import express from 'express';
-const app=express();
-//set configuration to tell express that we are using ejs
-app.set("view engine","ejs")
 
-app.get("/",(req,res)=>{
-    res.render("index")
+import express from "express";
+import methodOverride from "method-override"
 
-})
-app.get("/me",(req,res)=>{
-    res.send("its me")
-})
- let userData=[{
-        id:1,
-        name:"amit",
-        age:"23"
-    },{  id:2,
-        name:"Sumit",
-        age:"23"
+const app = express();
 
-    }]
-app.get("/user",(req,res)=>{
-   
-    res.render("user",{userData})
-})
+app.set("view engine", "ejs");
+app.use(methodOverride('_method'))
 
-app.get("/list",(req,res)=>{
-    //let arr=["A","B","C","D"]
-    let arr=[]
+app.use(express.urlencoded({ extended: true }))
 
-    res.render("list",{arr})
-})
-app.use(express.urlencoded({extended:true}));
-app.post("/api/user",(req,res)=>{
-    const{name,age}=req.body;
-    let newUserData={
-        id:userData.length,
+
+let userData = [
+    { id: 1, name: "amit", age: 23, },
+];
+
+// render index page
+app.get("/", (req, res) => {
+    res.render("index");
+});
+
+//render edit page
+// app.get("/editpage/:id", (req, res) => {
+//     const id = req.params.id;
+
+//     const user = userData.find((ele) => ele.id == id);
+//     console.log(user)
+
+//     res.render("edit", { userData: [user] })
+// })
+app.get("/editpage/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+
+  const user = userData.find((ele) => ele.id === id);
+
+  if (!user) {
+    return res.send("User not found");
+  }
+
+  res.render("edit", { user });   
+});
+
+
+// get user
+app.get("/user", (req, res) => {
+    res.render("user", { userData });
+});
+
+// add user
+app.post("/api/user", (req, res) => {
+
+    const { name, age } = req.body;
+
+    let newUserData = {
+        id: userData.length + 1,
         name,
         age
     }
     userData.push(newUserData);
     res.redirect('/user')
+
 })
-app.get("/user/user/:id/",(req,res)=>{
-    const userid=req.params.id;
-    const useridx=userData.findIndex((ele)=>ele.id==userid);
-    if (userid==-1){
-        return res.send("user not found") 
+
+//delete user
+app.delete("/api/user/:id", (req, res) => {
+
+    const userid = (req.params.id);
+
+    const useridx = userData.findIndex((ele) => ele.id == userid);
+
+    if (useridx == -1) {
+        return res.send("user not found")
     }
-    userData.splicce(useridx,1);
+
+    userData.splice(useridx, 1);
+
     res.redirect("/user")
-})
-app.listen(3000,(req,res)=>{
-    console.log("server is running")
+
 })
 
+app.put("/api/user/:id", (req, res) => {
+    const { name, age } = req.body;
+
+    const id = parseInt(req.params.id);   // FIXED
+
+    const userIdx = userData.findIndex((ele) => ele.id === id);
+
+    if (userIdx === -1) {                 // FIXED
+        return res.send("User not found");
+    }
+
+    userData[userIdx] = {                 // FIXED
+        id,
+        name,
+        age
+    };
+
+    res.redirect("/user");
+});
 
 
+app.listen(3000, () => {
+    console.log("server is running");
+});
 
-//static server
+
+// staic server
 //csr
 //ssr
-//template engine
-//ejs,pug,hbs
+// template engine
+// ejs, pug, hbs
 //seo friendly
-//ejs is template engine with the help of express we can render dynamic pages// enbedded java script

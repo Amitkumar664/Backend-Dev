@@ -3,33 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>User Page</title>
 </head>
 <body>
-    <h1>this is user page</h1>
-    <!-- <h1><%= userData.age%></h1>
-    <h1><%= userData.name%></h1> -->
 
-    <form action="/api/user" method="post">
-        <input type="text" name="name" placeholder="Enter name">
-        <input type="number" name="age" placeholder="Enter age">
-        <button type="submit">Submit</button> 
+    <h1>User Page</h1>
+
+    <!-- Create User -->
+    <form action="/api/user" method="POST">
+        <input type="text" name="name" placeholder="Enter name" required>
+        <input type="number" name="age" placeholder="Enter age" required>
+        <button type="submit">Submit</button>
     </form>
-    <!-- <% userData.forEach((ele)=>{%>
-        <li><%= ele.name%> <%=ele.
-        age%></li>
-    <button>delete</button> -->
+
+    <hr>
 
     <ul>
         <% userData.forEach((ele) => { %>
             <li>
-                <%= ele.name %> - <%= ele.age %>  <button><a href="/api/user/<%= ele.id %>">Delete</a></button>
+                <%= ele.name %> - <%= ele.age %>
+
+                <!-- Delete -->
+                <form action="/api/user/<%= ele.id %>?_method=DELETE" method="POST" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>  
+
+                <!-- Edit -->
+                <a href="/editpage/<%= ele.id %>">Edit</a>
             </li>
         <% }) %>
     </ul>
 
-    <%})%>
-
-    
 </body>
 </html>

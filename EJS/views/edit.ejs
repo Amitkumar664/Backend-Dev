@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+</head>
+<body>
+
+    <h1>Edit page</h1>
+
+    <form action="/api/user/<%= user.id %>?_method=PUT" method="POST">
+      
+      Name:
+      <input type="text" name="name" value="<%= user.name %>" required>
+      <br><br>
+
+      Age:
+      <input type="number" name="age" value="<%= user.age %>" required>
+      <br><br>
+
+      <button type="submit">Update</button>
+      <br><br>
+
+      <a href="/user">Back</a>
+
+    </form>
+   
+</body>
+</html>
