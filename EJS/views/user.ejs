@@ -7,8 +7,28 @@
 </head>
 <body>
     <h1>this is user page</h1>
-    <h1><%= userData.age%></h1>
-    <h1><%= userData.name%></h1>
+    <!-- <h1><%= userData.age%></h1>
+    <h1><%= userData.name%></h1> -->
+
+    <form action="/api/user" method="post">
+        <input type="text" name="name" placeholder="Enter name">
+        <input type="number" name="age" placeholder="Enter age">
+        <button type="submit">Submit</button> 
+    </form>
+    <!-- <% userData.forEach((ele)=>{%>
+        <li><%= ele.name%> <%=ele.
+        age%></li>
+    <button>delete</button> -->
+
+    <ul>
+        <% userData.forEach((ele) => { %>
+            <li>
+                <%= ele.name %> - <%= ele.age %>  <button><a href="/api/user/<%= ele.id %>">Delete</a></button>
+            </li>
+        <% }) %>
+    </ul>
+
+    <%})%>
 
     
 </body>
