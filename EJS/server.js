@@ -1,33 +1,31 @@
-
 import express from "express";
-import methodOverride from "method-override"
+import methodOverride from "method-override";
 
 const app = express();
 
 app.set("view engine", "ejs");
-app.use(methodOverride('_method'))
 
-app.use(express.urlencoded({ extended: true }))
+// Parse form data FIRST
+app.use(express.urlencoded({ extended: true }));
 
+// Method override for PUT & DELETE
+app.use(methodOverride("_method"));
 
 let userData = [
-    { id: 1, name: "amit", age: 23, },
+  { id: 1, name: "amit", age: 23 },
 ];
 
-// render index page
+// Home page
 app.get("/", (req, res) => {
-    res.render("index");
+  res.render("index");
 });
 
-//render edit page
-// app.get("/editpage/:id", (req, res) => {
-//     const id = req.params.id;
+// Get all users
+app.get("/user", (req, res) => {
+  res.render("user", { userData });
+});
 
-//     const user = userData.find((ele) => ele.id == id);
-//     console.log(user)
-
-//     res.render("edit", { userData: [user] })
-// })
+// Render edit page
 app.get("/editpage/:id", (req, res) => {
   const id = parseInt(req.params.id);
 
@@ -37,76 +35,55 @@ app.get("/editpage/:id", (req, res) => {
     return res.send("User not found");
   }
 
-  res.render("edit", { user });   
+  res.render("edit", { user });
 });
 
-
-// get user
-app.get("/user", (req, res) => {
-    res.render("user", { userData });
-});
-
-// add user
+// Create user
 app.post("/api/user", (req, res) => {
+  const { name, age } = req.body;
 
-    const { name, age } = req.body;
+  const newUser = {
+    id: userData.length + 1,
+    name,
+    age,
+  };
 
-    let newUserData = {
-        id: userData.length + 1,
-        name,
-        age
-    }
-    userData.push(newUserData);
-    res.redirect('/user')
+  userData.push(newUser);
 
-})
-
-//delete user
-app.delete("/api/user/:id", (req, res) => {
-
-    const userid = (req.params.id);
-
-    const useridx = userData.findIndex((ele) => ele.id == userid);
-
-    if (useridx == -1) {
-        return res.send("user not found")
-    }
-
-    userData.splice(useridx, 1);
-
-    res.redirect("/user")
-
-})
-
-app.put("/api/user/:id", (req, res) => {
-    const { name, age } = req.body;
-
-    const id = parseInt(req.params.id);   // FIXED
-
-    const userIdx = userData.findIndex((ele) => ele.id === id);
-
-    if (userIdx === -1) {                 // FIXED
-        return res.send("User not found");
-    }
-
-    userData[userIdx] = {                 // FIXED
-        id,
-        name,
-        age
-    };
-
-    res.redirect("/user");
+  res.redirect("/user");
 });
 
+// Delete user
+app.delete("/api/user/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+
+  const index = userData.findIndex((ele) => ele.id === id);
+
+  if (index === -1) {
+    return res.send("User not found");
+  }
+
+  userData.splice(index, 1);
+
+  res.redirect("/user");
+});
+
+// Update user
+app.put("/api/user/:id", (req, res) => {
+  const { name, age } = req.body;
+  const id = parseInt(req.params.id);
+
+  const index = userData.findIndex((ele) => ele.id === id);
+
+  if (index === -1) {
+    return res.send("User not found");
+  }
+
+  userData[index] = { id, name, age };
+
+  res.redirect("/user");
+});
 
 app.listen(3000, () => {
-    console.log("server is running");
+  console.log("Server running on http://localhost:3000");
 });
-
-
-// staic server
-//csr
-//ssr
-// template engine
-// ejs, pug, hbs
-//seo friendly
