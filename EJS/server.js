@@ -10,6 +10,10 @@ app.use(express.urlencoded({ extended: true }));
 
 // Method override for PUT & DELETE
 app.use(methodOverride("_method"));
+import userRoute from "./ROUTER/userRoute.js";
+
+app.use("/", userRoute(userData));
+
 
 let userData = [
   { id: 1, name: "amit", age: 23 },
