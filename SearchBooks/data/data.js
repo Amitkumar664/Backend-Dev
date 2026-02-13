@@ -1,0 +1,8 @@
+const books = [
+  { id: 1, title: "The Great Gatsby" },
+  { id: 2, title: "1984" },
+  { id: 3, title: "To Kill a Mockingbird" },
+  { id: 4, title: "Animal Farm" }
+];
+
+export default books;
