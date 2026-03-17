@@ -1,0 +1,1235 @@
+Microsoft Windows [Version 10.0.26200.8037]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\amitk>mongosh
+Current Mongosh Log ID: 69b917ceefa9c3d0da7c2906
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.7.0
+Using MongoDB:          8.2.5
+Using Mongosh:          2.7.0
+mongosh 2.8.1 is available for download: https://www.mongodb.com/try/download/shell
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2026-03-13T17:12:09.017+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> use BackendDb
+switched to db BackendDb
+BackendDb> show collections
+movies
+order
+products
+BackendDb> db.products.find({price:{$gt:5000}});
+[
+  {
+    _id: ObjectId('69b7834a010f7d2e917c2907'),
+    name: 'Laptop',
+    price: 50000,
+    brand: 'HP',
+    stock: 10
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2907'),
+    name: 'Laptop',
+    price: 75000,
+    stock: 10,
+    specs: { brand: 'Dell', ram: '16GB', storage: '512GB SSD' },
+    tags: [ 'electronics', 'computer', 'work' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2908'),
+    name: 'Smartphone',
+    price: 30000,
+    stock: 25,
+    specs: { brand: 'Samsung', ram: '8GB', storage: '128GB' },
+    tags: [ 'electronics', 'mobile' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290c'),
+    name: 'Monitor',
+    price: 15000,
+    stock: 15,
+    specs: { brand: 'LG', size: '24 inch', resolution: '1080p' },
+    tags: [ 'display', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290d'),
+    name: 'Tablet',
+    price: 20000,
+    stock: 18,
+    specs: { brand: 'Apple', storage: '64GB' },
+    tags: [ 'electronics', 'portable' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2910'),
+    name: 'External Hard Drive',
+    price: 6000,
+    stock: 12,
+    specs: { brand: 'Seagate', storage: '1TB' },
+    tags: [ 'storage', 'computer' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2912'),
+    name: 'Gaming Chair',
+    price: 12000,
+    stock: 7,
+    specs: { brand: 'GreenSoul', material: 'Leather' },
+    tags: [ 'furniture', 'gaming' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2916'),
+    name: 'Printer',
+    price: 8000,
+    stock: 9,
+    specs: { brand: 'HP', type: 'Inkjet' },
+    tags: [ 'office', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2917'),
+    name: 'Scanner',
+    price: 6500,
+    stock: 6,
+    specs: { brand: 'Canon', resolution: '1200dpi' },
+    tags: [ 'office', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2918'),
+    name: 'Projector',
+    price: 22000,
+    stock: 5,
+    specs: { brand: 'Epson', resolution: 'Full HD' },
+    tags: [ 'display', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2919'),
+    name: 'Graphics Card',
+    price: 45000,
+    stock: 8,
+    specs: { brand: 'Nvidia', memory: '8GB' },
+    tags: [ 'computer', 'gaming' ]
+  }
+]
+BackendDb> db.products.find()
+[
+  {
+    _id: ObjectId('69b7834a010f7d2e917c2907'),
+    name: 'Laptop',
+    price: 50000,
+    brand: 'HP',
+    stock: 10
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2907'),
+    name: 'Laptop',
+    price: 75000,
+    stock: 10,
+    specs: { brand: 'Dell', ram: '16GB', storage: '512GB SSD' },
+    tags: [ 'electronics', 'computer', 'work' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2908'),
+    name: 'Smartphone',
+    price: 30000,
+    stock: 25,
+    specs: { brand: 'Samsung', ram: '8GB', storage: '128GB' },
+    tags: [ 'electronics', 'mobile' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2909'),
+    name: 'Headphones',
+    price: 2500,
+    stock: 50,
+    specs: { brand: 'Sony', type: 'Wireless' },
+    tags: [ 'audio', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290a'),
+    name: 'Keyboard',
+    price: 1200,
+    stock: 40,
+    specs: { brand: 'Logitech', type: 'Mechanical' },
+    tags: [ 'computer', 'accessory' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290b'),
+    name: 'Mouse',
+    price: 800,
+    stock: 60,
+    specs: { brand: 'HP', type: 'Wireless' },
+    tags: [ 'computer', 'accessory' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290c'),
+    name: 'Monitor',
+    price: 15000,
+    stock: 15,
+    specs: { brand: 'LG', size: '24 inch', resolution: '1080p' },
+    tags: [ 'display', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290d'),
+    name: 'Tablet',
+    price: 20000,
+    stock: 18,
+    specs: { brand: 'Apple', storage: '64GB' },
+    tags: [ 'electronics', 'portable' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c290e'),
+    name: 'Smartwatch',
+    price: 5000,
+    stock: 30,
+    specs: { brand: 'Noise', battery: '7 days' },
+    tags: [ 'electronics', 'wearable' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c290f'),
+    name: 'Bluetooth Speaker',
+    price: 3000,
+    stock: 20,
+    specs: { brand: 'JBL', battery: '10 hours' },
+    tags: [ 'audio', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2910'),
+    name: 'External Hard Drive',
+    price: 6000,
+    stock: 12,
+    specs: { brand: 'Seagate', storage: '1TB' },
+    tags: [ 'storage', 'computer' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2911'),
+    name: 'USB Flash Drive',
+    price: 700,
+    stock: 80,
+    specs: { brand: 'SanDisk', storage: '64GB' },
+    tags: [ 'storage', 'portable' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2912'),
+    name: 'Gaming Chair',
+    price: 12000,
+    stock: 7,
+    specs: { brand: 'GreenSoul', material: 'Leather' },
+    tags: [ 'furniture', 'gaming' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2913'),
+    name: 'Webcam',
+    price: 2500,
+    stock: 22,
+    specs: { brand: 'Logitech', resolution: '1080p' },
+    tags: [ 'camera', 'computer' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2914'),
+    name: 'Router',
+    price: 3500,
+    stock: 16,
+    specs: { brand: 'TP-Link', speed: '1200Mbps' },
+    tags: [ 'network', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2915'),
+    name: 'Power Bank',
+    price: 1500,
+    stock: 45,
+    specs: { brand: 'Mi', capacity: '20000mAh' },
+    tags: [ 'mobile', 'battery' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2916'),
+    name: 'Printer',
+    price: 8000,
+    stock: 9,
+    specs: { brand: 'HP', type: 'Inkjet' },
+    tags: [ 'office', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2917'),
+    name: 'Scanner',
+    price: 6500,
+    stock: 6,
+    specs: { brand: 'Canon', resolution: '1200dpi' },
+    tags: [ 'office', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2918'),
+    name: 'Projector',
+    price: 22000,
+    stock: 5,
+    specs: { brand: 'Epson', resolution: 'Full HD' },
+    tags: [ 'display', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2919'),
+    name: 'Graphics Card',
+    price: 45000,
+    stock: 8,
+    specs: { brand: 'Nvidia', memory: '8GB' },
+    tags: [ 'computer', 'gaming' ]
+  }
+]
+Type "it" for more
+BackendDb> db.products.find({tags:'electronics',stock:{$gt:5});
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:50)
+
+> 1 | db.products.find({tags:'electronics',stock:{$gt:5});
+    |                                                   ^
+  2 |
+
+BackendDb> db.products.find({tags:'electronics',stock:{$gt:5})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:50)
+
+> 1 | db.products.find({tags:'electronics',stock:{$gt:5})
+    |                                                   ^
+  2 |
+
+BackendDb> db.products.find({tags:'electronics',stock:{$gt:5})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:50)
+
+> 1 | db.products.find({tags:'electronics',stock:{$gt:5})
+    |                                                   ^
+  2 |
+
+BackendDb> db.products.find({tags:'electronics',stock:{$gt:5}})
+[
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2907'),
+    name: 'Laptop',
+    price: 75000,
+    stock: 10,
+    specs: { brand: 'Dell', ram: '16GB', storage: '512GB SSD' },
+    tags: [ 'electronics', 'computer', 'work' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2908'),
+    name: 'Smartphone',
+    price: 30000,
+    stock: 25,
+    specs: { brand: 'Samsung', ram: '8GB', storage: '128GB' },
+    tags: [ 'electronics', 'mobile' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2909'),
+    name: 'Headphones',
+    price: 2500,
+    stock: 50,
+    specs: { brand: 'Sony', type: 'Wireless' },
+    tags: [ 'audio', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290c'),
+    name: 'Monitor',
+    price: 15000,
+    stock: 15,
+    specs: { brand: 'LG', size: '24 inch', resolution: '1080p' },
+    tags: [ 'display', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290d'),
+    name: 'Tablet',
+    price: 20000,
+    stock: 18,
+    specs: { brand: 'Apple', storage: '64GB' },
+    tags: [ 'electronics', 'portable' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c290e'),
+    name: 'Smartwatch',
+    price: 5000,
+    stock: 30,
+    specs: { brand: 'Noise', battery: '7 days' },
+    tags: [ 'electronics', 'wearable' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c290f'),
+    name: 'Bluetooth Speaker',
+    price: 3000,
+    stock: 20,
+    specs: { brand: 'JBL', battery: '10 hours' },
+    tags: [ 'audio', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2914'),
+    name: 'Router',
+    price: 3500,
+    stock: 16,
+    specs: { brand: 'TP-Link', speed: '1200Mbps' },
+    tags: [ 'network', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2916'),
+    name: 'Printer',
+    price: 8000,
+    stock: 9,
+    specs: { brand: 'HP', type: 'Inkjet' },
+    tags: [ 'office', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2917'),
+    name: 'Scanner',
+    price: 6500,
+    stock: 6,
+    specs: { brand: 'Canon', resolution: '1200dpi' },
+    tags: [ 'office', 'electronics' ]
+  }
+]
+BackendDb> db.products.find({"specs.ram":"8GB"})
+[
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2908'),
+    name: 'Smartphone',
+    price: 30000,
+    stock: 25,
+    specs: { brand: 'Samsung', ram: '8GB', storage: '128GB' },
+    tags: [ 'electronics', 'mobile' ]
+  }
+]
+BackendDb> db.products.find({tags:'display'})
+[
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290c'),
+    name: 'Monitor',
+    price: 15000,
+    stock: 15,
+    specs: { brand: 'LG', size: '24 inch', resolution: '1080p' },
+    tags: [ 'display', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2918'),
+    name: 'Projector',
+    price: 22000,
+    stock: 5,
+    specs: { brand: 'Epson', resolution: 'Full HD' },
+    tags: [ 'display', 'electronics' ]
+  }
+]
+BackendDb> db.products.find().sort({price:-1})
+[
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2907'),
+    name: 'Laptop',
+    price: 75000,
+    stock: 10,
+    specs: { brand: 'Dell', ram: '16GB', storage: '512GB SSD' },
+    tags: [ 'electronics', 'computer', 'work' ]
+  },
+  {
+    _id: ObjectId('69b7834a010f7d2e917c2907'),
+    name: 'Laptop',
+    price: 50000,
+    brand: 'HP',
+    stock: 10
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2919'),
+    name: 'Graphics Card',
+    price: 45000,
+    stock: 8,
+    specs: { brand: 'Nvidia', memory: '8GB' },
+    tags: [ 'computer', 'gaming' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2908'),
+    name: 'Smartphone',
+    price: 30000,
+    stock: 25,
+    specs: { brand: 'Samsung', ram: '8GB', storage: '128GB' },
+    tags: [ 'electronics', 'mobile' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2918'),
+    name: 'Projector',
+    price: 22000,
+    stock: 5,
+    specs: { brand: 'Epson', resolution: 'Full HD' },
+    tags: [ 'display', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290d'),
+    name: 'Tablet',
+    price: 20000,
+    stock: 18,
+    specs: { brand: 'Apple', storage: '64GB' },
+    tags: [ 'electronics', 'portable' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290c'),
+    name: 'Monitor',
+    price: 15000,
+    stock: 15,
+    specs: { brand: 'LG', size: '24 inch', resolution: '1080p' },
+    tags: [ 'display', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2912'),
+    name: 'Gaming Chair',
+    price: 12000,
+    stock: 7,
+    specs: { brand: 'GreenSoul', material: 'Leather' },
+    tags: [ 'furniture', 'gaming' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2916'),
+    name: 'Printer',
+    price: 8000,
+    stock: 9,
+    specs: { brand: 'HP', type: 'Inkjet' },
+    tags: [ 'office', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2917'),
+    name: 'Scanner',
+    price: 6500,
+    stock: 6,
+    specs: { brand: 'Canon', resolution: '1200dpi' },
+    tags: [ 'office', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2910'),
+    name: 'External Hard Drive',
+    price: 6000,
+    stock: 12,
+    specs: { brand: 'Seagate', storage: '1TB' },
+    tags: [ 'storage', 'computer' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c290e'),
+    name: 'Smartwatch',
+    price: 5000,
+    stock: 30,
+    specs: { brand: 'Noise', battery: '7 days' },
+    tags: [ 'electronics', 'wearable' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c291a'),
+    name: 'Microphone',
+    price: 4000,
+    stock: 14,
+    specs: { brand: 'Blue', type: 'USB' },
+    tags: [ 'audio', 'recording' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2914'),
+    name: 'Router',
+    price: 3500,
+    stock: 16,
+    specs: { brand: 'TP-Link', speed: '1200Mbps' },
+    tags: [ 'network', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c290f'),
+    name: 'Bluetooth Speaker',
+    price: 3000,
+    stock: 20,
+    specs: { brand: 'JBL', battery: '10 hours' },
+    tags: [ 'audio', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2909'),
+    name: 'Headphones',
+    price: 2500,
+    stock: 50,
+    specs: { brand: 'Sony', type: 'Wireless' },
+    tags: [ 'audio', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2913'),
+    name: 'Webcam',
+    price: 2500,
+    stock: 22,
+    specs: { brand: 'Logitech', resolution: '1080p' },
+    tags: [ 'camera', 'computer' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2915'),
+    name: 'Power Bank',
+    price: 1500,
+    stock: 45,
+    specs: { brand: 'Mi', capacity: '20000mAh' },
+    tags: [ 'mobile', 'battery' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290a'),
+    name: 'Keyboard',
+    price: 1200,
+    stock: 40,
+    specs: { brand: 'Logitech', type: 'Mechanical' },
+    tags: [ 'computer', 'accessory' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290b'),
+    name: 'Mouse',
+    price: 800,
+    stock: 60,
+    specs: { brand: 'HP', type: 'Wireless' },
+    tags: [ 'computer', 'accessory' ]
+  }
+]
+Type "it" for more
+BackendDb> db.products.find().sort({price:1}).limit(5)
+[
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2911'),
+    name: 'USB Flash Drive',
+    price: 700,
+    stock: 80,
+    specs: { brand: 'SanDisk', storage: '64GB' },
+    tags: [ 'storage', 'portable' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290b'),
+    name: 'Mouse',
+    price: 800,
+    stock: 60,
+    specs: { brand: 'HP', type: 'Wireless' },
+    tags: [ 'computer', 'accessory' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290a'),
+    name: 'Keyboard',
+    price: 1200,
+    stock: 40,
+    specs: { brand: 'Logitech', type: 'Mechanical' },
+    tags: [ 'computer', 'accessory' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2915'),
+    name: 'Power Bank',
+    price: 1500,
+    stock: 45,
+    specs: { brand: 'Mi', capacity: '20000mAh' },
+    tags: [ 'mobile', 'battery' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2913'),
+    name: 'Webcam',
+    price: 2500,
+    stock: 22,
+    specs: { brand: 'Logitech', resolution: '1080p' },
+    tags: [ 'camera', 'computer' ]
+  }
+]
+BackendDb> db.products.countDocuments({tags:"mobile"})
+2
+BackendDb> db.products.find()
+[
+  {
+    _id: ObjectId('69b7834a010f7d2e917c2907'),
+    name: 'Laptop',
+    price: 50000,
+    brand: 'HP',
+    stock: 10
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2907'),
+    name: 'Laptop',
+    price: 75000,
+    stock: 10,
+    specs: { brand: 'Dell', ram: '16GB', storage: '512GB SSD' },
+    tags: [ 'electronics', 'computer', 'work' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2908'),
+    name: 'Smartphone',
+    price: 30000,
+    stock: 25,
+    specs: { brand: 'Samsung', ram: '8GB', storage: '128GB' },
+    tags: [ 'electronics', 'mobile' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2909'),
+    name: 'Headphones',
+    price: 2500,
+    stock: 50,
+    specs: { brand: 'Sony', type: 'Wireless' },
+    tags: [ 'audio', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290a'),
+    name: 'Keyboard',
+    price: 1200,
+    stock: 40,
+    specs: { brand: 'Logitech', type: 'Mechanical' },
+    tags: [ 'computer', 'accessory' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290b'),
+    name: 'Mouse',
+    price: 800,
+    stock: 60,
+    specs: { brand: 'HP', type: 'Wireless' },
+    tags: [ 'computer', 'accessory' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290c'),
+    name: 'Monitor',
+    price: 15000,
+    stock: 15,
+    specs: { brand: 'LG', size: '24 inch', resolution: '1080p' },
+    tags: [ 'display', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290d'),
+    name: 'Tablet',
+    price: 20000,
+    stock: 18,
+    specs: { brand: 'Apple', storage: '64GB' },
+    tags: [ 'electronics', 'portable' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c290e'),
+    name: 'Smartwatch',
+    price: 5000,
+    stock: 30,
+    specs: { brand: 'Noise', battery: '7 days' },
+    tags: [ 'electronics', 'wearable' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c290f'),
+    name: 'Bluetooth Speaker',
+    price: 3000,
+    stock: 20,
+    specs: { brand: 'JBL', battery: '10 hours' },
+    tags: [ 'audio', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2910'),
+    name: 'External Hard Drive',
+    price: 6000,
+    stock: 12,
+    specs: { brand: 'Seagate', storage: '1TB' },
+    tags: [ 'storage', 'computer' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2911'),
+    name: 'USB Flash Drive',
+    price: 700,
+    stock: 80,
+    specs: { brand: 'SanDisk', storage: '64GB' },
+    tags: [ 'storage', 'portable' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2912'),
+    name: 'Gaming Chair',
+    price: 12000,
+    stock: 7,
+    specs: { brand: 'GreenSoul', material: 'Leather' },
+    tags: [ 'furniture', 'gaming' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2913'),
+    name: 'Webcam',
+    price: 2500,
+    stock: 22,
+    specs: { brand: 'Logitech', resolution: '1080p' },
+    tags: [ 'camera', 'computer' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2914'),
+    name: 'Router',
+    price: 3500,
+    stock: 16,
+    specs: { brand: 'TP-Link', speed: '1200Mbps' },
+    tags: [ 'network', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2915'),
+    name: 'Power Bank',
+    price: 1500,
+    stock: 45,
+    specs: { brand: 'Mi', capacity: '20000mAh' },
+    tags: [ 'mobile', 'battery' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2916'),
+    name: 'Printer',
+    price: 8000,
+    stock: 9,
+    specs: { brand: 'HP', type: 'Inkjet' },
+    tags: [ 'office', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2917'),
+    name: 'Scanner',
+    price: 6500,
+    stock: 6,
+    specs: { brand: 'Canon', resolution: '1200dpi' },
+    tags: [ 'office', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2918'),
+    name: 'Projector',
+    price: 22000,
+    stock: 5,
+    specs: { brand: 'Epson', resolution: 'Full HD' },
+    tags: [ 'display', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2919'),
+    name: 'Graphics Card',
+    price: 45000,
+    stock: 8,
+    specs: { brand: 'Nvidia', memory: '8GB' },
+    tags: [ 'computer', 'gaming' ]
+  }
+]
+Type "it" for more
+BackendDb> db.products.find({stock:{$gte:20,$lte:100})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:42)
+
+> 1 | db.products.find({stock:{$gte:20,$lte:100})
+    |                                           ^
+  2 |
+
+BackendDb> db.products.find({stock:{$gte:20,$lte:100}})
+[
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2908'),
+    name: 'Smartphone',
+    price: 30000,
+    stock: 25,
+    specs: { brand: 'Samsung', ram: '8GB', storage: '128GB' },
+    tags: [ 'electronics', 'mobile' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2909'),
+    name: 'Headphones',
+    price: 2500,
+    stock: 50,
+    specs: { brand: 'Sony', type: 'Wireless' },
+    tags: [ 'audio', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290a'),
+    name: 'Keyboard',
+    price: 1200,
+    stock: 40,
+    specs: { brand: 'Logitech', type: 'Mechanical' },
+    tags: [ 'computer', 'accessory' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290b'),
+    name: 'Mouse',
+    price: 800,
+    stock: 60,
+    specs: { brand: 'HP', type: 'Wireless' },
+    tags: [ 'computer', 'accessory' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c290e'),
+    name: 'Smartwatch',
+    price: 5000,
+    stock: 30,
+    specs: { brand: 'Noise', battery: '7 days' },
+    tags: [ 'electronics', 'wearable' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c290f'),
+    name: 'Bluetooth Speaker',
+    price: 3000,
+    stock: 20,
+    specs: { brand: 'JBL', battery: '10 hours' },
+    tags: [ 'audio', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2911'),
+    name: 'USB Flash Drive',
+    price: 700,
+    stock: 80,
+    specs: { brand: 'SanDisk', storage: '64GB' },
+    tags: [ 'storage', 'portable' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2913'),
+    name: 'Webcam',
+    price: 2500,
+    stock: 22,
+    specs: { brand: 'Logitech', resolution: '1080p' },
+    tags: [ 'camera', 'computer' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2915'),
+    name: 'Power Bank',
+    price: 1500,
+    stock: 45,
+    specs: { brand: 'Mi', capacity: '20000mAh' },
+    tags: [ 'mobile', 'battery' ]
+  }
+]
+BackendDb> db.products.find({_id:0})
+
+BackendDb> db.products.find({},{_id:0,name:1,price:1})
+[
+  { name: 'Laptop', price: 50000 },
+  { name: 'Laptop', price: 75000 },
+  { name: 'Smartphone', price: 30000 },
+  { name: 'Headphones', price: 2500 },
+  { name: 'Keyboard', price: 1200 },
+  { name: 'Mouse', price: 800 },
+  { name: 'Monitor', price: 15000 },
+  { name: 'Tablet', price: 20000 },
+  { name: 'Smartwatch', price: 5000 },
+  { name: 'Bluetooth Speaker', price: 3000 },
+  { name: 'External Hard Drive', price: 6000 },
+  { name: 'USB Flash Drive', price: 700 },
+  { name: 'Gaming Chair', price: 12000 },
+  { name: 'Webcam', price: 2500 },
+  { name: 'Router', price: 3500 },
+  { name: 'Power Bank', price: 1500 },
+  { name: 'Printer', price: 8000 },
+  { name: 'Scanner', price: 6500 },
+  { name: 'Projector', price: 22000 },
+  { name: 'Graphics Card', price: 45000 }
+]
+Type "it" for more
+BackendDb> db.products.find({tags:'computer',price:{$gt:50000}})
+[
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2907'),
+    name: 'Laptop',
+    price: 75000,
+    stock: 10,
+    specs: { brand: 'Dell', ram: '16GB', storage: '512GB SSD' },
+    tags: [ 'electronics', 'computer', 'work' ]
+  }
+]
+BackendDb> db.products.find({price:{$gte:40000,$lte:80000}})
+[
+  {
+    _id: ObjectId('69b7834a010f7d2e917c2907'),
+    name: 'Laptop',
+    price: 50000,
+    brand: 'HP',
+    stock: 10
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2907'),
+    name: 'Laptop',
+    price: 75000,
+    stock: 10,
+    specs: { brand: 'Dell', ram: '16GB', storage: '512GB SSD' },
+    tags: [ 'electronics', 'computer', 'work' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2919'),
+    name: 'Graphics Card',
+    price: 45000,
+    stock: 8,
+    specs: { brand: 'Nvidia', memory: '8GB' },
+    tags: [ 'computer', 'gaming' ]
+  }
+]
+BackendDb> db.products.find({tags:{$ne:'Accesssories'}})
+[
+  {
+    _id: ObjectId('69b7834a010f7d2e917c2907'),
+    name: 'Laptop',
+    price: 50000,
+    brand: 'HP',
+    stock: 10
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2907'),
+    name: 'Laptop',
+    price: 75000,
+    stock: 10,
+    specs: { brand: 'Dell', ram: '16GB', storage: '512GB SSD' },
+    tags: [ 'electronics', 'computer', 'work' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2908'),
+    name: 'Smartphone',
+    price: 30000,
+    stock: 25,
+    specs: { brand: 'Samsung', ram: '8GB', storage: '128GB' },
+    tags: [ 'electronics', 'mobile' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2909'),
+    name: 'Headphones',
+    price: 2500,
+    stock: 50,
+    specs: { brand: 'Sony', type: 'Wireless' },
+    tags: [ 'audio', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290a'),
+    name: 'Keyboard',
+    price: 1200,
+    stock: 40,
+    specs: { brand: 'Logitech', type: 'Mechanical' },
+    tags: [ 'computer', 'accessory' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290b'),
+    name: 'Mouse',
+    price: 800,
+    stock: 60,
+    specs: { brand: 'HP', type: 'Wireless' },
+    tags: [ 'computer', 'accessory' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290c'),
+    name: 'Monitor',
+    price: 15000,
+    stock: 15,
+    specs: { brand: 'LG', size: '24 inch', resolution: '1080p' },
+    tags: [ 'display', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290d'),
+    name: 'Tablet',
+    price: 20000,
+    stock: 18,
+    specs: { brand: 'Apple', storage: '64GB' },
+    tags: [ 'electronics', 'portable' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c290e'),
+    name: 'Smartwatch',
+    price: 5000,
+    stock: 30,
+    specs: { brand: 'Noise', battery: '7 days' },
+    tags: [ 'electronics', 'wearable' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c290f'),
+    name: 'Bluetooth Speaker',
+    price: 3000,
+    stock: 20,
+    specs: { brand: 'JBL', battery: '10 hours' },
+    tags: [ 'audio', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2910'),
+    name: 'External Hard Drive',
+    price: 6000,
+    stock: 12,
+    specs: { brand: 'Seagate', storage: '1TB' },
+    tags: [ 'storage', 'computer' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2911'),
+    name: 'USB Flash Drive',
+    price: 700,
+    stock: 80,
+    specs: { brand: 'SanDisk', storage: '64GB' },
+    tags: [ 'storage', 'portable' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2912'),
+    name: 'Gaming Chair',
+    price: 12000,
+    stock: 7,
+    specs: { brand: 'GreenSoul', material: 'Leather' },
+    tags: [ 'furniture', 'gaming' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2913'),
+    name: 'Webcam',
+    price: 2500,
+    stock: 22,
+    specs: { brand: 'Logitech', resolution: '1080p' },
+    tags: [ 'camera', 'computer' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2914'),
+    name: 'Router',
+    price: 3500,
+    stock: 16,
+    specs: { brand: 'TP-Link', speed: '1200Mbps' },
+    tags: [ 'network', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2915'),
+    name: 'Power Bank',
+    price: 1500,
+    stock: 45,
+    specs: { brand: 'Mi', capacity: '20000mAh' },
+    tags: [ 'mobile', 'battery' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2916'),
+    name: 'Printer',
+    price: 8000,
+    stock: 9,
+    specs: { brand: 'HP', type: 'Inkjet' },
+    tags: [ 'office', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2917'),
+    name: 'Scanner',
+    price: 6500,
+    stock: 6,
+    specs: { brand: 'Canon', resolution: '1200dpi' },
+    tags: [ 'office', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2918'),
+    name: 'Projector',
+    price: 22000,
+    stock: 5,
+    specs: { brand: 'Epson', resolution: 'Full HD' },
+    tags: [ 'display', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2919'),
+    name: 'Graphics Card',
+    price: 45000,
+    stock: 8,
+    specs: { brand: 'Nvidia', memory: '8GB' },
+    tags: [ 'computer', 'gaming' ]
+  }
+]
+Type "it" for more
+BackendDb> db.products.find({stock:{$gte:20})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:33)
+
+> 1 | db.products.find({stock:{$gte:20})
+    |                                  ^
+  2 |
+
+BackendDb> db.products.find({stock:{$gte:20}})
+[
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2908'),
+    name: 'Smartphone',
+    price: 30000,
+    stock: 25,
+    specs: { brand: 'Samsung', ram: '8GB', storage: '128GB' },
+    tags: [ 'electronics', 'mobile' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2909'),
+    name: 'Headphones',
+    price: 2500,
+    stock: 50,
+    specs: { brand: 'Sony', type: 'Wireless' },
+    tags: [ 'audio', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290a'),
+    name: 'Keyboard',
+    price: 1200,
+    stock: 40,
+    specs: { brand: 'Logitech', type: 'Mechanical' },
+    tags: [ 'computer', 'accessory' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c290b'),
+    name: 'Mouse',
+    price: 800,
+    stock: 60,
+    specs: { brand: 'HP', type: 'Wireless' },
+    tags: [ 'computer', 'accessory' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c290e'),
+    name: 'Smartwatch',
+    price: 5000,
+    stock: 30,
+    specs: { brand: 'Noise', battery: '7 days' },
+    tags: [ 'electronics', 'wearable' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c290f'),
+    name: 'Bluetooth Speaker',
+    price: 3000,
+    stock: 20,
+    specs: { brand: 'JBL', battery: '10 hours' },
+    tags: [ 'audio', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2911'),
+    name: 'USB Flash Drive',
+    price: 700,
+    stock: 80,
+    specs: { brand: 'SanDisk', storage: '64GB' },
+    tags: [ 'storage', 'portable' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2913'),
+    name: 'Webcam',
+    price: 2500,
+    stock: 22,
+    specs: { brand: 'Logitech', resolution: '1080p' },
+    tags: [ 'camera', 'computer' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c2915'),
+    name: 'Power Bank',
+    price: 1500,
+    stock: 45,
+    specs: { brand: 'Mi', capacity: '20000mAh' },
+    tags: [ 'mobile', 'battery' ]
+  }
+]
+BackendDb> db.products.find().sort({price:-1}).limit(1)
+[
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2907'),
+    name: 'Laptop',
+    price: 75000,
+    stock: 10,
+    specs: { brand: 'Dell', ram: '16GB', storage: '512GB SSD' },
+    tags: [ 'electronics', 'computer', 'work' ]
+  }
+]
+BackendDb> db.products.find({
+|   tags: { $all: ["gaming", "office"] }
+| })
+
+BackendDb> db.products.find({
+|   "specs.storage": { $gte: 512 }
+| })
+
+BackendDb> db.products.find({
+|   name: { $regex: "Phone", $options: "i" }
+| })
+[
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2908'),
+    name: 'Smartphone',
+    price: 30000,
+    stock: 25,
+    specs: { brand: 'Samsung', ram: '8GB', storage: '128GB' },
+    tags: [ 'electronics', 'mobile' ]
+  },
+  {
+    _id: ObjectId('69b7c2d443b97385bd7c2909'),
+    name: 'Headphones',
+    price: 2500,
+    stock: 50,
+    specs: { brand: 'Sony', type: 'Wireless' },
+    tags: [ 'audio', 'electronics' ]
+  },
+  {
+    _id: ObjectId('69b7c50a43b97385bd7c291a'),
+    name: 'Microphone',
+    price: 4000,
+    stock: 14,
+    specs: { brand: 'Blue', type: 'USB' },
+    tags: [ 'audio', 'recording' ]
+  }
+]
+BackendDb> db.products.aggregate([
+|   {
+|     $group: {
+|       _id: "$category",
+|       count: { $sum: 1 },
+|       avgPrice: { $avg: "$price" }
+|     }
+|   }
+| ])
+[ { _id: null, count: 21, avgPrice: 14961.904761904761 } ]
+BackendDb>
