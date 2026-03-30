@@ -8,6 +8,9 @@ export const getAllUsers=async(req,res)=>{
             users
         })
     }catch(error){
-        console.log("Error in getAllUsers",error)
+        res.status(500).json({           
+             success:false,
+            message:"Something went wrong"
+        })
     }
 }
