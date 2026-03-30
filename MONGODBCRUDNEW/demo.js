@@ -32,11 +32,7 @@ app.get('/set-cookie', (req, res) => {
     }
     const token = jwt.sign(user, 'abcdef', { expiresIn: '1h' });
     console.log(token);
-
-
-
-
-
+    
     res.cookie("token", token, { httpOnly: true });
     res.send('Cookie has been set!');
 });
@@ -48,26 +44,28 @@ const authMiddleware = (req, res, next) => {
     if (!req.cookies.token) {
         return res.send('invalid user');
     }
-    next();
-};
-app.get('/get-cookie', authMiddleware, (req, res) => {
     const token = req.cookies.token;
 
     const decoded = jwt.verify(token, 'abcdef');
-    console.log(decoded);
+    //set the user info in req object
+    req.user=decoded;
+    next();
+};
+app.get('/get-cookie', authMiddleware, (req, res) => {
+    
 
 
     const name = req.cookies.name;
     res.send(`Cookie value: ${name}`);
 });
 app.get('/profile', authMiddleware, (req, res) => {
-    const token = req.cookies.token;
-
-    const decoded = jwt.verify(token, 'abcdef');
-    console.log(decoded);
+    
     // const name = req.cookies.name;
 
     res.send(`Welcome to your profile, ${decoded.name}!`);
+});
+app.get("/dashboard", authMiddleware, (req, res) => {
+    res.send(`Welcome to your dashboard, ${req.user.name}!`);
 });
 app.get('/clear-cookie', (req, res) => {
     res.clearCookie('name');
